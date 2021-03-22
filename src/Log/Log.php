@@ -1,0 +1,137 @@
+<?php
+
+/**
+ * Class Log
+ *
+ * @package     Rufus
+ * @author      Drizzy <hola@drizzy.dev>
+ * @license     http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+namespace Rufus\Log;
+
+use Rufus\Exception\ExceptionHandler;
+
+class Log
+{
+	/**
+	 * Save log as emergency
+	 *
+	 * @param string $message
+	 * @throws \Exception
+	 */
+	public function emergency($message)
+	{
+		$this->write('emergency', $message);
+	}
+
+	/**
+	 * Save log as alert
+	 *
+	 * @param string $message
+	 * @throws \Exception
+	 */
+	public function alert($message)
+	{
+		$this->write('alert', $message);
+	}
+
+	/**
+	 * Save log as critical
+	 *
+	 * @param string $message
+	 * @throws \Exception
+	 */
+	public function critical($message)
+	{
+		$this->write('critical', $message);
+	}
+
+	/**
+	 * Save log as error
+	 *
+	 * @param string $message
+	 * @throws \Exception
+	 */
+	public function error($message)
+	{
+		$this->write('error', $message);
+	}
+
+	/**
+	 * Save log as warning
+	 *
+	 * @param string $message
+	 * @throws \Exception
+	 */
+	public function warning($message)
+	{
+		$this->write('warning', $message);
+	}
+
+	/**
+	 * Save log as notice
+	 *
+	 * @param string $message
+	 * @throws \Exception
+	 */
+	public function notice($message)
+	{
+		$this->write('notice', $message);
+	}
+
+	/**
+	 * Save log as info
+	 *
+	 * @param string $message
+	 * @throws \Exception
+	 */
+	public function info($message)
+	{
+		$this->write('info', $message);
+	}
+
+	/**
+	 * Save log as debug
+	 *
+	 * @param string $message
+	 * @throws \Exception
+	 */
+	public function debug($message)
+	{
+		$this->write('debug', $message);
+	}
+
+    /**
+     * Write logs to file
+     *
+     * @param string $level
+     * @param string $message
+     * @throws \Exception
+     */
+	protected function write($level, $message)
+	{
+		if (is_array($message))
+			$message = serialize($message);
+
+		$logText = '[' . date('Y-m-d H:i:s') . '] - [' . $level . '] ---> ' . $message;
+		$this->save($logText);
+	}
+
+    /**
+     * Save Log
+     *
+     * @param string $logText
+     * @throws \Exception
+     */
+	protected function save($logText)
+	{
+		$fileName = 'Log_' . date('Y-m-d') . '.log';
+		$file = fopen(config('log.single.path') . $fileName, 'a');
+		if (fwrite($file, $logText . "\n") === false)
+			throw new ExceptionHandler("Error", "No se pudo crear el archivo de registro. Verifique los permisos de escritura.");
+
+		fclose($file);
+	}
+
+}

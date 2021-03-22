@@ -1,0 +1,34 @@
+{
+    "name": "rufus/framework",
+    "description": "A PHP Framework with a simple and clean structure",
+    "license": "MIT",
+    "authors": [{
+        "name": "Drizzy",
+        "email": "hola@drizzy.dev",
+        "role": "Software Engineer"
+    }],
+
+    "require": {
+        "php": "^7.3|^8.0",
+        "ext-json": "*",
+        "filp/whoops": "^2.9",
+        "vlucas/phpdotenv": "^3.6",
+        "illuminate/database": "^5.5",
+        "phpmailer/phpmailer": "~6.1",
+        "phpunit/phpunit": "^8.5.8|^9.3.3"
+        
+    },
+    "autoload": {
+        "files": [
+            "src/Support/helpers.php"
+        ],
+        "psr-4": {
+            "Rufus\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    }
+}

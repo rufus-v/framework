@@ -1,0 +1,11 @@
+<?php
+
+namespace {baseNamespace}{namespace};
+
+use Rufus\Http\Request;
+use Rufus\Kernel\Controller;
+
+class {className} extends Controller
+{
+    //
+}
