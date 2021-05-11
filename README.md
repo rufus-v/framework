@@ -18,12 +18,12 @@ Rufus es un Framework php con una estructura simple y limpia, construido para pe
 
 ¡Gracias por considerar contribuir a Rufus Framework! La guía de contribución está en la documentación del framework.
 
-- [Drizzy](https://github.com/drizzy-v)
+- [Drizzy](https://github.com/drizzy)
 - [Gracias colaboradores](https://github.com/rufus-v/framework/graphs/contributors)
 
 ## Contacto
 
-[hola@drizzy.dev](mailto:hola@drizzy.dev) - [@drizzyofc](https://twitter.com/drizzyofc)
+[hola@drizzy.dev](mailto:hola@drizzy.dev) - [@drizzy](https://twitter.com/drizzy)
 
 **Por favor, si hay un error en el proyecto póngase en contacto conmigo por correo electrónico.**
 
