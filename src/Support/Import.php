@@ -37,9 +37,9 @@ class Import
 	public static function config($file)
 	{
 		
-		if (!file_exists('../config/' . ucwords($file) . '.php'))
-            throw new ExceptionHandler('Archivo no encontrado.', '<b>Config : </b>' .  'config/' . ucfirst($file) . '.php');
+		if (!file_exists('../config/' . $file . '.php'))
+            throw new ExceptionHandler('Archivo no encontrado.', '<b>Config : </b>' .  'config/' . $file . '.php');
 
-		return require '../config/' . ucwords($file) . '.php';
+		return require '../config/' . $file . '.php';
 	}
 }
